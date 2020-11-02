@@ -5,6 +5,7 @@ using BaseTemplate.Services.FileSystemService;
 using BaseTemplate.Services.LocalDatabaseService;
 using BaseTemplate.ViewModels;
 using TemplateFoundation.IOCFoundation;
+using TemplateFoundation.Navigation.Implementations;
 using TemplateFoundation.Navigation.NavigationContainers;
 using Xamarin.Forms;
 
@@ -47,10 +48,12 @@ namespace BaseTemplate
 
         private void SetStartPage()
         {
-            var masterDetailNav = new MasterDetailNavigationContainer();
-            masterDetailNav.Init("Menu");
-            masterDetailNav.AddPage<MainViewModel>("Home");
-            MainPage = masterDetailNav;
+            //var masterDetailNav = new MasterDetailNavigationContainer();
+            //masterDetailNav.Init("Menu");
+            //masterDetailNav.AddPage<MainViewModel>("Home");
+            Page page = ViewModelResolver.ResolveViewModel<MainViewModel>();
+            NavigationPageContainer navigationContainer = new NavigationPageContainer(page);
+            MainPage = navigationContainer;
         }
     }
 }

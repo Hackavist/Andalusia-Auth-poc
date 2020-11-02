@@ -1,23 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-
-using Xamarin.Forms;
+﻿using System.Diagnostics;
 
 namespace BaseTemplate.Pages
 {
-    public partial class MainPage : ContentPage
+    public partial class MainPage 
     {
         public MainPage()
         {
             InitializeComponent();
-        }
-
-        void Button_Clicked(System.Object sender, System.EventArgs e)
-        {
-
-            int i = 0;
-
-            var x = 10 / i;
         }
     }
 }

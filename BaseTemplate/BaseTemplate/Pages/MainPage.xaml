@@ -1,16 +1,39 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
-<ContentPage
+<TemplateFoundation:BaseContentPage
     x:Class="BaseTemplate.Pages.MainPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:TemplateFoundation="clr-namespace:TemplateFoundation.PageFoundation;assembly=TemplateFoundation"
+    Title="{Binding Title}">
     <ContentPage.Content>
         <StackLayout>
-            <Label
-                HorizontalOptions="CenterAndExpand"
-                Text="Welcome to xamarin kick"
-                VerticalOptions="CenterAndExpand" />
-            <Button Clicked="Button_Clicked" Text="click me" />
-
+            <Button Command="{Binding ClickedCommand}" Text="Click here" />
+            <CollectionView
+                HorizontalOptions="Center"
+                ItemSizingStrategy="MeasureFirstItem"
+                ItemsSource="{Binding DataSource}"
+                VerticalOptions="Center">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout BackgroundColor="Azure">
+                            <StackLayout
+                                HorizontalOptions="Center"
+                                Spacing="10"
+                                VerticalOptions="Center">
+                                <Label
+                                    FontSize="Large"
+                                    Text="{Binding ArName}"
+                                    TextColor="Black" />
+                                <Label
+                                    FontSize="Large"
+                                    Text="{Binding EnName}"
+                                    TextColor="Black" />
+                            </StackLayout>
+                            <BoxView HeightRequest="1" Color="Black" />
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
         </StackLayout>
     </ContentPage.Content>
-</ContentPage>
+</TemplateFoundation:BaseContentPage>
