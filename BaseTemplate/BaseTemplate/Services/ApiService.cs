@@ -6,7 +6,10 @@ namespace BaseTemplate.Services
 {
     public interface IAndalusiaApi
     {
-        [Get("/odata/ClinicTagOData?&$count=true&%24format=json&%24top=10&%24orderby=ArName")]
-        Task<Root> GetUsers([Header("Authentication")] string Authentication);
+        [Get("/odata/ClinicTagOData")]
+        Task<Root> GetUsers([Header("Authentication")] string Authentication, [Query("", "$")] QueryString query);
+        [Headers("Content-Type: application/json")]
+        [Post("/api/ClinicTag/AddClinicTag")]
+        Task<int> SendUser([Header("Authentication")] string Authentication, [Body] Value obj);
     }
 }

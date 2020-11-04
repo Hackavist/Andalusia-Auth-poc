@@ -21,11 +21,9 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>MinimumOSVersion</key>
-	<string>8.0</string>
+	<string>12.0</string>
 	<key>CFBundleDisplayName</key>
 	<string>BaseTemplate</string>
-	<key>CFBundleIdentifier</key>
-	<string>com.companyname.BaseTemplate</string>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
 	<key>UILaunchStoryboardName</key>
@@ -42,5 +40,7 @@
 	<string>This app needs access to microphone.</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>This app needs access to the photo gallery.</string>
+	<key>CFBundleIdentifier</key>
+	<string>-</string>
 </dict>
 </plist>

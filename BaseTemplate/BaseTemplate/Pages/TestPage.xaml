@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<template:BaseContentPage
+    x:Class="BaseTemplate.Pages.TestPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:template="clr-namespace:TemplateFoundation.PageFoundation;assembly=TemplateFoundation"
+    Title="{Binding Title}">
+    <ContentPage.Content>
+        <StackLayout>
+            <Entry Text="{Binding PostData.EnName}" />
+            <Entry Text="{Binding PostData.ArName}" />
+            <Entry Text="{Binding PostData.Description}" />
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Active" />
+                <Switch IsToggled="{Binding PostData.IsActive}" />
+                <Label Text="InActive" />
+            </StackLayout>
+            <Button Command="{Binding ClickedCommand}" Text="Post" />
+        </StackLayout>
+    </ContentPage.Content>
+</template:BaseContentPage>

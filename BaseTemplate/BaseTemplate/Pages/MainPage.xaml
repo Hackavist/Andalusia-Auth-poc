@@ -8,14 +8,20 @@
     <ContentPage.Content>
         <StackLayout>
             <Button Command="{Binding ClickedCommand}" Text="Click here" />
+            <Button Command="{Binding NavigateCommand}" Text="Post Request" />
             <CollectionView
                 HorizontalOptions="Center"
                 ItemSizingStrategy="MeasureFirstItem"
                 ItemsSource="{Binding DataSource}"
+                RemainingItemsThreshold="5"
+                RemainingItemsThresholdReachedCommand="{Binding LoadMore}"
                 VerticalOptions="Center">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <StackLayout BackgroundColor="Azure">
+                        <Frame
+                            Margin="0,10"
+                            BackgroundColor="Azure"
+                            CornerRadius="15">
                             <StackLayout
                                 HorizontalOptions="Center"
                                 Spacing="10"
@@ -27,10 +33,9 @@
                                 <Label
                                     FontSize="Large"
                                     Text="{Binding EnName}"
-                                    TextColor="Black" />
+                                    TextColor="Blue" />
                             </StackLayout>
-                            <BoxView HeightRequest="1" Color="Black" />
-                        </StackLayout>
+                        </Frame>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
