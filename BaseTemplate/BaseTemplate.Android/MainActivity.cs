@@ -19,7 +19,7 @@ namespace BaseTemplate.Droid
             ToolbarResource = Resource.Layout.Toolbar;
             AppDomain.CurrentDomain.UnhandledException += CurrentDomainOnUnhandledException;
             TaskScheduler.UnobservedTaskException += TaskSchedulerOnUnobservedTaskException;
-
+            Xamarin.Forms.Forms.SetFlags("Brush_Experimental");
             base.OnCreate(savedInstanceState);
             UserDialogs.Init(this);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);

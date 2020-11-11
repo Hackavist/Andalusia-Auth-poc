@@ -51,7 +51,7 @@ namespace BaseTemplate
             //var masterDetailNav = new MasterDetailNavigationContainer();
             //masterDetailNav.Init("Menu");
             //masterDetailNav.AddPage<MainViewModel>("Home");
-            Page page = ViewModelResolver.ResolveViewModel<MainViewModel>();
+            Page page = ViewModelResolver.ResolveViewModel<TimeLineViewModel>();
             NavigationPageContainer navigationContainer = new NavigationPageContainer(page);
             MainPage = navigationContainer;
         }

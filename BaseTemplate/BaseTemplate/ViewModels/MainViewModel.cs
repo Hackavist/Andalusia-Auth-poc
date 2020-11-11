@@ -38,7 +38,6 @@ namespace BaseTemplate.ViewModels
         public MainViewModel()
         {
             Title = "MainPage";
-            //ClickedCommand = new AsyncCommand(async () => { await FetchData(); });
             NavigateCommand = new AsyncCommand(async () => { await NavigationService.PushPageModel<TestViewModel>(); });
             LoadMore = new AsyncCommand(async () => { await FetchData(); });
             ClickedCommand = new AsyncCommand(async () => { await FetchData(); });

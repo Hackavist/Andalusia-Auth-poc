@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Foundation:BaseContentPage
+    x:Class="BaseTemplate.Pages.TimeLinePage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:Foundation="clr-namespace:TemplateFoundation.PageFoundation;assembly=TemplateFoundation"
+    xmlns:converters="clr-namespace:PHR_MVVM.Converters.TimeLineItemConverters"
+    Title="{Binding Title}"
+    BackgroundColor="#eff5f9">
+    <Foundation:BaseContentPage.Resources>
+        <ResourceDictionary>
+            <converters:CardTitleColorConverter x:Key="CardTitleColorConverter" />
+            <converters:TimeLineImagesConverter x:Key="ImageConverter" />
+        </ResourceDictionary>
+    </Foundation:BaseContentPage.Resources>
+    <Foundation:BaseContentPage.Content>
+        <Grid RowDefinitions="*,9*">
+            <Button
+                Grid.Row="0"
+                Margin="15,10"
+                CornerRadius="0"
+                Text="Connect with Hospitals"
+                TextColor="White">
+                <Button.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                        <GradientStop Offset="0.1" Color="#045dad" />
+                        <GradientStop Offset="1.0" Color="#1196d8" />
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <CollectionView
+                Grid.Row="1"
+                Margin="15"
+                IsGrouped="True"
+                ItemSizingStrategy="MeasureFirstItem"
+                ItemsSource="{Binding MedicalHistoryCollection}">
+                <CollectionView.EmptyView>
+                    <StackLayout>
+                        <Image
+                            HeightRequest="250"
+                            Source="emptytimeline.png"
+                            WidthRequest="250" />
+                        <Label
+                            FontSize="Large"
+                            HorizontalTextAlignment="Center"
+                            Text="No data has been added to your medical history yet! Start syncing from hospitals or click on (+) to add them manually." />
+                    </StackLayout>
+                </CollectionView.EmptyView>
+                <CollectionView.GroupHeaderTemplate>
+                    <DataTemplate>
+                        <StackLayout Orientation="Horizontal">
+                            <Label
+                                FontAttributes="Bold"
+                                FontSize="Medium"
+                                Text="{Binding YearMonth.Month}"
+                                TextColor="#035cac"
+                                VerticalOptions="StartAndExpand"
+                                VerticalTextAlignment="Start" />
+                            <Label
+                                FontSize="Small"
+                                HorizontalOptions="Start"
+                                Text="{Binding YearMonth.Year}"
+                                TextColor="Black"
+                                VerticalOptions="EndAndExpand"
+                                VerticalTextAlignment="End" />
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.GroupHeaderTemplate>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid ColumnDefinitions="2*,7.5*,0.5*">
+                            <Image
+                                Grid.Column="0"
+                                Aspect="AspectFit"
+                                HeightRequest="60"
+                                HorizontalOptions="Center"
+                                Source="{Binding CategoryImgSrc, Converter={StaticResource ImageConverter}}"
+                                VerticalOptions="Center"
+                                WidthRequest="60" />
+                            <Frame
+                                Grid.Column="1"
+                                Margin="0,5"
+                                Padding="10"
+                                BackgroundColor="White"
+                                CornerRadius="0"
+                                HasShadow="False">
+                                <StackLayout HorizontalOptions="Fill" VerticalOptions="Fill">
+                                    <Label
+                                        FontSize="Medium"
+                                        HorizontalOptions="Start"
+                                        Text="{Binding Category}"
+                                        TextColor="{Binding Category, Converter={StaticResource CardTitleColorConverter}}" />
+                                    <Label
+                                        FontSize="Small"
+                                        HorizontalOptions="Start"
+                                        MaxLines="1"
+                                        Text="{Binding Title}"
+                                        TextColor="Black" />
+                                </StackLayout>
+                            </Frame>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+                <CollectionView.Footer>
+                    <Grid
+                        ColumnDefinitions="*,*"
+                        ColumnSpacing="15"
+                        RowDefinitions="*,3*"
+                        RowSpacing="20">
+                        <StackLayout
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="2"
+                            Orientation="Horizontal">
+                            <Label
+                                FontAttributes="Bold"
+                                FontSize="Large"
+                                Text="22"
+                                TextColor="#035cac"
+                                VerticalOptions="StartAndExpand"
+                                VerticalTextAlignment="Start" />
+                            <Label
+                                FontSize="Medium"
+                                HorizontalOptions="Start"
+                                Text="Years ago"
+                                TextColor="Black"
+                                VerticalOptions="EndAndExpand"
+                                VerticalTextAlignment="End" />
+                        </StackLayout>
+                        <Image
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            Aspect="AspectFit"
+                            HorizontalOptions="End"
+                            Source="BabyImage.png"
+                            VerticalOptions="Center" />
+                        <Label
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Text="I was Born"
+                            TextColor="DarkGray"
+                            VerticalOptions="Center" />
+                    </Grid>
+                </CollectionView.Footer>
+            </CollectionView>
+        </Grid>
+    </Foundation:BaseContentPage.Content>
+</Foundation:BaseContentPage>

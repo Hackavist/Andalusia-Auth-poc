@@ -27,7 +27,7 @@ namespace BaseTemplate.iOS
         {
             AppDomain.CurrentDomain.UnhandledException += CurrentDomainOnUnhandledException;
             TaskScheduler.UnobservedTaskException += TaskSchedulerOnUnobservedTaskException;
-
+            Xamarin.Forms.Forms.SetFlags("Brush_Experimental");
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
            // DisplayCrashReport();

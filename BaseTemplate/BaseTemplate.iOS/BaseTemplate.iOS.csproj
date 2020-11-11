@@ -171,4 +171,30 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <BundleResource Include="Resources\emptytimeline.png" />
+    <BundleResource Include="Resources\emptytimeline%402x.png" />
+    <BundleResource Include="Resources\emptytimeline%403x.png" />
+    <BundleResource Include="Resources\BabyImage.png" />
+    <BundleResource Include="Resources\BabyImage%402x.png" />
+    <BundleResource Include="Resources\BabyImage%403x.png" />
+    <BundleResource Include="Resources\diagnose.png" />
+    <BundleResource Include="Resources\diagnose%402x.png" />
+    <BundleResource Include="Resources\diagnose%403x.png" />
+    <BundleResource Include="Resources\lab.png" />
+    <BundleResource Include="Resources\lab%402x.png" />
+    <BundleResource Include="Resources\lab%403x.png" />
+    <BundleResource Include="Resources\medication.png" />
+    <BundleResource Include="Resources\medication%402x.png" />
+    <BundleResource Include="Resources\medication%403x.png" />
+    <BundleResource Include="Resources\operation.png" />
+    <BundleResource Include="Resources\operation%402x.png" />
+    <BundleResource Include="Resources\operation%403x.png" />
+    <BundleResource Include="Resources\rad.png" />
+    <BundleResource Include="Resources\rad%402x.png" />
+    <BundleResource Include="Resources\rad%403x.png" />
+    <BundleResource Include="Resources\procedure.png" />
+    <BundleResource Include="Resources\procedure%402x.png" />
+    <BundleResource Include="Resources\procedure%403x.png" />
+  </ItemGroup>
 </Project>
