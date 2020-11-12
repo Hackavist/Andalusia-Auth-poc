@@ -4,6 +4,7 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:Foundation="clr-namespace:TemplateFoundation.PageFoundation;assembly=TemplateFoundation"
+    xmlns:conv="clr-namespace:BaseTemplate.Converters"
     xmlns:converters="clr-namespace:PHR_MVVM.Converters.TimeLineItemConverters"
     Title="{Binding Title}"
     BackgroundColor="#eff5f9">
@@ -11,6 +12,7 @@
         <ResourceDictionary>
             <converters:CardTitleColorConverter x:Key="CardTitleColorConverter" />
             <converters:TimeLineImagesConverter x:Key="ImageConverter" />
+            <conv:ActiveChronicConverter x:Key="ActiveChronicConverter" />
         </ResourceDictionary>
     </Foundation:BaseContentPage.Resources>
     <Foundation:BaseContentPage.Content>
@@ -32,7 +34,6 @@
                 Grid.Row="1"
                 Margin="15"
                 IsGrouped="True"
-                ItemSizingStrategy="MeasureFirstItem"
                 ItemsSource="{Binding MedicalHistoryCollection}">
                 <CollectionView.EmptyView>
                     <StackLayout>
@@ -96,7 +97,42 @@
                                         MaxLines="1"
                                         Text="{Binding Title}"
                                         TextColor="Black" />
+                                    <StackLayout
+                                        Grid.Row="2"
+                                        HorizontalOptions="Fill"
+                                        Orientation="Horizontal"
+                                        VerticalOptions="EndAndExpand">
+                                        <Image
+                                            Margin="0"
+                                            Aspect="AspectFit"
+                                            HeightRequest="32"
+                                            IsVisible="{Binding HasImageAttachment}"
+                                            Source="uploadPicture.png"
+                                            WidthRequest="32" />
+                                        <Image
+                                            Aspect="AspectFit"
+                                            HeightRequest="32"
+                                            IsVisible="{Binding HasPDFAttachment}"
+                                            Source="pdf.png"
+                                            WidthRequest="32" />
+                                    </StackLayout>
                                 </StackLayout>
+                            </Frame>
+                            <Frame
+                                Grid.Column="2"
+                                Margin="0,5"
+                                Padding="-20"
+                                BackgroundColor="{Binding ActiveChronicFlag, Converter={StaticResource ActiveChronicConverter}}"
+                                CornerRadius="0"
+                                HorizontalOptions="Fill"
+                                VerticalOptions="Fill">
+                                <Label
+                                    FontSize="Micro"
+                                    HorizontalOptions="Center"
+                                    LineBreakMode="NoWrap"
+                                    Rotation="90"
+                                    Text="{Binding activeChronicText}"
+                                    VerticalOptions="Center" />
                             </Frame>
                         </Grid>
                     </DataTemplate>
